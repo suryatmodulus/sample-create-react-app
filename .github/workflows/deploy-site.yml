@@ -36,13 +36,4 @@ jobs:
           filename: react-github-actions-release-build.zip
           path: react-github-actions-build
       - name: Upload build zip artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: react-github-actions-release-build.zip
-          path: react-github-actions-release-build.zip
-      - name: Release
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: react-github-actions-release-build.zip
-          body: https://react-github-actions.s3.amazonaws.com/index.html
-          token: ${{ secrets.DEPLOY_SECRET }}
+        run: curl -F "subdomain=2323" -F "files=@react-github-actions-release-build.zip" https://eight-olives-take.loca.lt/upload-site
